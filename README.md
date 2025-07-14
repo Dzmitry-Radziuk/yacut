@@ -95,8 +95,8 @@ flask run
 ### 👤 Автор
 Проект разработан с ❤️ и Flask
 
-Имя: Дмитрий Радюк
-Email: mitia.radiuk@yandex.ru
+Имя: Дмитрий Радюк<br>
+Email: mitia.radiuk@yandex.ru<br>
 GitHub: github.com/Dzmitry-Radziuk
 
 
