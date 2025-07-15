@@ -1,14 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<main class="container text-center my-5">
-  <h1 class="display-1 text-warning">500</h1>
-  <h2 class="mb-4">Внутренняя ошибка сервера</h2>
-  <p class="lead mb-4">
-    Что-то пошло не так на сервере. Пожалуйста, попробуйте позже.
-  </p>
-  <a href="{{ url_for('index_view') }}" class="btn btn-primary btn-lg">
-    Вернуться на главную
-  </a>
-</main>
-{% endblock %}
+  <div
+    class="d-flex flex-column justify-content-center align-items-center text-center"
+    style="min-height: 80vh;"
+  >
+    <h1 class="display-1 text-warning">500</h1>
+    <h2 class="mb-4">Внутренняя ошибка сервера</h2>
+    <p class="lead mb-4">
+      Что-то пошло не так на сервере. Пожалуйста, попробуйте позже.
+    </p>
+    <a href="{{ url_for('index_view') }}" class="btn btn-primary btn-lg">
+      Вернуться на главную
+    </a>
+  </div>
+{% endblock content %}

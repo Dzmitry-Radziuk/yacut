@@ -1,14 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<main class="container text-center my-5">
-  <h1 class="display-1 text-danger">404</h1>
-  <h2 class="mb-4">Страница не найдена</h2>
-  <p class="lead mb-4">
-    Извините, но страница, которую вы ищете, не существует или была удалена.
-  </p>
-  <a href="{{ url_for('index_view') }}" class="btn btn-primary btn-lg">
-    Вернуться на главную
-  </a>
-</main>
-{% endblock %}
+  <div
+    class="d-flex flex-column justify-content-center align-items-center text-center"
+    style="min-height: 80vh;"
+  >
+    <h1 class="display-1 text-danger">404</h1>
+    <h2 class="mb-4">Страница не найдена</h2>
+    <p class="lead mb-4">
+      Извините, но страница, которую вы ищете, не существует или была удалена.
+    </p>
+    <a href="{{ url_for('index_view') }}" class="btn btn-primary btn-lg">
+      Вернуться на главную
+    </a>
+  </div>
+{% endblock content %}
