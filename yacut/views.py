@@ -1,7 +1,7 @@
 from flask import flash, redirect, render_template
 
 from yacut import app
-from yacut.error_handlers import InvalidAPIUsage
+from yacut import error_handlers
 from yacut.forms import URLForm
 from yacut.models import URLMap
 
@@ -28,8 +28,15 @@ def index_view():
                 original=original_link, custom_id=custom_id
             )
             flash("Ссылка успешно создана")
-        except InvalidAPIUsage as error:
-            form.custom_id.errors.append(error.message)
+        except error_handlers.ShortIDNotUniqueError as error:
+            form.custom_id.errors.append(str(error))
+        except error_handlers.InvalidShortIDNameError as error:
+            form.custom_id.errors.append(str(error))
+        except error_handlers.ShortIDAlreadyExistsError as error:
+            form.custom_id.errors.append(str(error))
+            flash(str(error))
+        except Exception:
+            flash("Произошла непредвиденная ошибка.")
 
     return render_template(
         "index.html", form=form, url_map_object=url_map_object

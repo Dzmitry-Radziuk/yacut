@@ -66,9 +66,10 @@
           <div class="col-sm"></div>
           <div class="col-sm text-center">
             <h5>Ваша короткая ссылка:</h5>
-            <a href="{{ url_for('redirect_view', short=url_map_object.short, _external=True) }}">
-              {{ url_for('redirect_view', short=url_map_object.short, _external=True) }}
+            <a href="{{ url_map_object.get_short_url() }}">
+              {{ url_map_object.get_short_url() }}
             </a>
+            
           </div>
           <div class="col-sm"></div>
         </div>

@@ -1,6 +1,7 @@
 # Поля
 ORIGINAL_FIELD = "original"
 SHORT_FIELD = "short"
+
 # Константы длины
 DEFAULT_LENGTH_SHORT_LINK = 6
 MAX_LENGTH_SHORT_LINK = 16
