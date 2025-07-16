@@ -23,18 +23,14 @@ def create_short_link():
 
     try:
         url_map = URLMap.create(original=original, custom_id=custom_id)
-    except error_handlers.ShortIDNotUniqueError as error:
+    except (
+        error_handlers.ShortIDNotUniqueError,
+        error_handlers.InvalidShortIDNameError,
+        error_handlers.ShortIDAlreadyExistsError
+    ) as error:
         raise error_handlers.InvalidAPIUsage(
-            str(error), HTTPStatus.BAD_REQUEST
-        )
-    except error_handlers.InvalidShortIDNameError as error:
-        raise error_handlers.InvalidAPIUsage(
-            str(error), HTTPStatus.BAD_REQUEST
-        )
-    except error_handlers.ShortIDAlreadyExistsError as error:
-        raise error_handlers.InvalidAPIUsage(
-            str(error), HTTPStatus.BAD_REQUEST
-        )
+            str(error), HTTPStatus.BAD_REQUEST)
+
     except Exception:
         raise error_handlers.InvalidAPIUsage(
             "Внутренняя ошибка сервера", HTTPStatus.INTERNAL_SERVER_ERROR
